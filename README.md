@@ -1,4 +1,4 @@
-artificer-widgets
-=================
+Artificer Widgets
+===========================
 
-Default widgets for artificer
+Default widgets for Artificer

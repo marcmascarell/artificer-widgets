@@ -1,0 +1,30 @@
+{
+    "name": "mascame/artificer-widgets",
+    "description": "Default widgets for artificer.",
+    "homepage": "https://github.com/marcmascarell/artificer-localization-plugin",
+    "keywords": [
+        "laravel",
+        "artificer",
+        "widgets",
+        "localization"
+    ],
+    "authors": [
+        {
+            "name": "Marc Mascarell",
+            "email": "marcmascarell@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-0": {
+            "Mascame\\ArtificerWidgets\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
