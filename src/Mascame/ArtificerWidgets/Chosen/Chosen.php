@@ -7,12 +7,23 @@ class Chosen extends AbstractWidget {
 	public function output()
 	{
 		?>
-		<link rel="stylesheet" href="<?= $this->package_assets ?>/chosen/chosen.min.css">
-		<link rel="stylesheet" href="<?= $this->package_assets ?>/chosen/chosen.jquery.min.js">
+		<link rel="stylesheet" href="<?= $this->package_assets ?>/chosen/custom.chosen.css">
+		<script src="<?= $this->package_assets ?>/chosen/chosen.jquery.js"></script>
+
 		<script>
-			(function ($) {
-				$("select").chosen();
-			})(jQuery);
+			$(function () {
+				var $chosen = $("select");
+
+				function makeChosen(element) {
+					element.chosen({width: "100%"})
+				}
+
+				$("body").on('relationRefresh', function(event, data) {
+					makeChosen($('select[name="'+data.name+'"]'));
+				});
+
+				makeChosen($chosen);
+			});
 		</script>
 	<?php
 	}
