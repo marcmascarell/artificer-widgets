@@ -8,7 +8,11 @@ class DateTimepicker extends AbstractWidget {
 	{
 		?>
 		<link rel="stylesheet" href="<?= $this->package_assets ?>/datetimepicker/css/bootstrap-datetimepicker.min.css">
-		<script src="<?= $this->package_assets ?>/datetimepicker/js/bootstrap-datetimepicker.min.js "></script>
+
+		<!-- Needed moment.js lib -->
+		<script src="<?= $this->package_assets ?>/libs/js/moment-with-locales.min.js"></script>
+
+		<script src="<?= $this->package_assets ?>/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
 
 		<script>
 			$(function () {
