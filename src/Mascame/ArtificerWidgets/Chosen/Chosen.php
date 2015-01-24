@@ -12,15 +12,15 @@ class Chosen extends AbstractWidget {
 
 		<script>
 			$(function () {
-				var $chosen = $("select");
+				var $chosen = $("select:visible");
 
 				function makeChosen(element) {
 					element.chosen({width: "100%"})
 				}
 
-				$("body").on('relationRefresh', function(event, data) {
-					makeChosen($('select[name="'+data.name+'"]'));
-				});
+//				$("body").on('relationRefresh', function(event, data) {
+//					makeChosen($('select[name="'+data.name+'"]'));
+//				});
 
 				makeChosen($chosen);
 			});
