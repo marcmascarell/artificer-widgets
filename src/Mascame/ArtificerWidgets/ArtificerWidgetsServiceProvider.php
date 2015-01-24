@@ -1,6 +1,11 @@
 <?php namespace Mascame\ArtificerWidgets;
 
 use Illuminate\Support\ServiceProvider;
+use App;
+use Mascame\ArtificerWidgets\Chosen\Chosen;
+use Mascame\ArtificerWidgets\CKeditor\CKeditor;
+use Mascame\ArtificerWidgets\Datepicker\Datepicker;
+use Mascame\ArtificerWidgets\DateTimepicker\DateTimepicker;
 
 class ArtificerWidgetsServiceProvider extends ServiceProvider {
 
@@ -19,6 +24,26 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->package('mascame/artificer-widgets');
+
+		App::singleton('artificer-chosen-widget', function()
+		{
+			return new Chosen();
+		});
+
+		App::singleton('artificer-ckeditor-widget', function()
+		{
+			return new CKeditor();
+		});
+
+		App::singleton('artificer-datepicker-widget', function()
+		{
+			return new Datepicker();
+		});
+
+		App::singleton('artificer-datetimepicker-widget', function()
+		{
+			return new DateTimepicker();
+		});
 	}
 
 	/**
@@ -28,7 +53,7 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+
 	}
 
 	/**
