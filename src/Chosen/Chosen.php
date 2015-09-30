@@ -7,8 +7,8 @@ class Chosen extends AbstractWidget {
 	public function output()
 	{
 		?>
-		<link rel="stylesheet" href="<?= $this->package_assets ?>/chosen/custom.chosen.css">
-		<script src="<?= $this->package_assets ?>/chosen/chosen.jquery.js"></script>
+		<link rel="stylesheet" href="<?= self::$package_assets ?>/chosen/custom.chosen.css">
+		<script src="<?= self::$package_assets ?>/chosen/chosen.jquery.js"></script>
 
 		<script>
 			$(function () {
