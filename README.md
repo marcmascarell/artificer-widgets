@@ -3,6 +3,10 @@ Artificer Widgets
 
 Default widgets for Artificer
 
+```sh
+php artisan vendor:publish --provider="Mascame\ArtificerWidgets\ArtificerWidgetsServiceProvider"
+```
+
 Support
 ----
 

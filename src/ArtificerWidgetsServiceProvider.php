@@ -16,6 +16,8 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
+	protected $name = 'artificer-widgets';
+
 	/**
 	 * Bootstrap the application events.
 	 *
@@ -23,7 +25,9 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('mascame/artificer-widgets');
+		$this->publishes([
+			__DIR__.'/../resources/' => public_path('packages/mascame/' . $this->name),
+		], 'public');
 
 		App::singleton('artificer-chosen-widget', function()
 		{
