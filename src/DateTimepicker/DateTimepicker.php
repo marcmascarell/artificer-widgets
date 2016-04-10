@@ -1,8 +1,14 @@
 <?php namespace Mascame\ArtificerWidgets\DateTimepicker;
 
-use Mascame\Artificer\Widgets\AbstractWidget;
+use Mascame\Artificer\Widgets\FieldWidget;
 
-class DateTimepicker extends AbstractWidget {
+class DateTimepicker extends FieldWidget {
+
+	public $version = '1.0';
+	public $name = 'Datetime';
+	public $description = 'Bootstrap Datepicker';
+	public $author = 'Marc Mascarell';
+	public $thumbnail = ''; // url
 
 	public function output()
 	{
