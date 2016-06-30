@@ -36,12 +36,6 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		// We need the config loaded before we can use this package!
-		if (! $this->isPublished(public_path('packages/mascame/' . $this->name))) {
-			$this->autoPublish();
-			return;
-		}
-
 		App::singleton(Widgets\Chosen::class, function()
 		{
 			return new Widgets\Chosen();
