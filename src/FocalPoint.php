@@ -1,4 +1,4 @@
-<?php namespace Mascame\ArtificerWidgets\FocalPoint;
+<?php namespace Mascame\Artificer\Widgets;
 
 use Mascame\Artificer\Widgets\AbstractWidget;
 

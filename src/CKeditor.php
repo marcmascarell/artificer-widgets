@@ -1,4 +1,4 @@
-<?php namespace Mascame\ArtificerWidgets\CKeditor;
+<?php namespace Mascame\Artificer\Widgets;
 
 use Mascame\Artificer\Widgets\AbstractWidget;
 

@@ -1,14 +1,12 @@
-<?php namespace Mascame\ArtificerWidgets;
+<?php namespace Mascame\Artificer;
 
 use Illuminate\Support\ServiceProvider;
-use App;
-use Mascame\Artificer\Artificer;
-use Mascame\ArtificerWidgets\Chosen\Chosen;
-use Mascame\ArtificerWidgets\CKeditor\CKeditor;
-use Mascame\ArtificerWidgets\Datepicker\Datepicker;
-use Mascame\ArtificerWidgets\DateTimepicker\DateTimepicker;
+use Illuminate\Support\Facades\App;
+use Mascame\Artificer\Widgets;
 
 class ArtificerWidgetsServiceProvider extends ServiceProvider {
+
+	use AutoPublishable;
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -38,24 +36,30 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		App::singleton('artificer-chosen-widget', function()
+		// We need the config loaded before we can use this package!
+		if (! $this->isPublished(public_path('packages/mascame/' . $this->name))) {
+			$this->autoPublish();
+			return;
+		}
+
+		App::singleton(Widgets\Chosen::class, function()
 		{
-			return new Chosen();
+			return new Widgets\Chosen();
 		});
 
-		App::singleton('artificer-ckeditor-widget', function()
+		App::singleton(Widgets\CKeditor::class, function()
 		{
-			return new CKeditor();
+			return new Widgets\CKeditor();
 		});
 
-		App::singleton('artificer-datepicker-widget', function()
+		App::singleton(Widgets\Datepicker::class, function()
 		{
-			return new Datepicker();
+			return new Widgets\Datepicker();
 		});
 
-		App::singleton('artificer-datetimepicker-widget', function()
+		App::singleton(Widgets\DateTimepicker::class, function()
 		{
-			return new DateTimepicker();
+			return new Widgets\DateTimepicker();
 		});
 
 		Artificer::widgetManager()->add('widget-datetime', function() {
