@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
-use Mascame\Artificer\Widgets;
+use Mascame\Artificer\Widget;
 
 class ArtificerWidgetsServiceProvider extends ServiceProvider {
 
@@ -51,14 +51,14 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 			return new Widgets\Datepicker();
 		});
 
-		App::singleton(Widgets\DateTimepicker::class, function()
-		{
-			return new Widgets\DateTimepicker();
-		});
-
-		Artificer::widgetManager()->add('widget-datetime', function() {
-			return app(Widgets\DateTimepicker::class);
-		});
+//		App::singleton(Widgets\DateTimepicker::class, function()
+//		{
+//			return new Widgets\DateTimepicker();
+//		});
+//
+//		Artificer::widgetManager()->add('widget-datetime', function() {
+//			return app(Widgets\DateTimepicker::class);
+//		});
 	}
 
 	/**

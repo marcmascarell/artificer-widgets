@@ -1,6 +1,4 @@
-<?php namespace Mascame\Artificer\Widgets;
-
-use Mascame\Artificer\Widgets\FieldWidget;
+<?php namespace Mascame\Artificer\Widget;
 
 class DateTimepicker extends FieldWidget {
 
