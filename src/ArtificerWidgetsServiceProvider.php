@@ -57,7 +57,7 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 		});
 
 		Artificer::widgetManager()->add('widget-datetime', function() {
-			return app('artificer-datetimepicker-widget');
+			return app(Widgets\DateTimepicker::class);
 		});
 	}
 
