@@ -1,7 +1,5 @@
 <?php namespace Mascame\Artificer\Widget;
 
-// This widget requires a column on database like "sort_id" to work
-
 class FocalPoint extends AbstractWidget {
 
 	public function output()
