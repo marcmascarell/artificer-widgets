@@ -8,6 +8,19 @@ class DateTimepicker extends FieldWidget {
 	public $author = 'Marc Mascarell';
 	public $thumbnail = ''; // url
 
+	public function getStyles() {
+		return [
+			'datetimepicker/css/bootstrap-datetimepicker.min.css'
+		];
+	}
+
+	public function getScripts() {
+		return [
+			'libs/js/moment-with-locales.min.js',
+			'datetimepicker/js/bootstrap-datetimepicker.min.js',
+		];
+	}
+
 	public function output()
 	{
 		?>
