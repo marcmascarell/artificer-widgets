@@ -1,4 +1,4 @@
-<?php namespace Mascame\Artificer\Widget;
+<?php namespace Mascame\Artificer\Widgets;
 
 class CKeditor extends AbstractWidget {
 
