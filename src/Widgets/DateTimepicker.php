@@ -8,12 +8,13 @@ class DateTimepicker extends FieldWidget {
 	public $name = 'Datetime';
 	public $description = 'Bootstrap Datepicker';
 	public $thumbnail = ''; // url
+	public $slug = 'datetimepicker';
 
 	public function assets() {
 		return [
-			'bootstrap-datetimepicker.min.css',
-			'libs/moment-with-locales.min.js',
-			'bootstrap-datetimepicker.min.js',
+            'libs/moment-with-locales.min.js',
+            $this->slug . '/css/bootstrap-datetimepicker.min.css',
+            $this->slug . '/js/bootstrap-datetimepicker.min.js',
 		];
 	}
 
