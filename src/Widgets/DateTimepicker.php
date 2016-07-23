@@ -7,7 +7,6 @@ class DateTimepicker extends FieldWidget {
 
 	public $name = 'Datetime';
 	public $description = 'Bootstrap Datepicker';
-	public $author = 'Marc Mascarell';
 	public $thumbnail = ''; // url
 
 	public function assets() {

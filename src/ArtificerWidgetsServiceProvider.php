@@ -41,24 +41,19 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 			return new Widgets\Chosen();
 		});
 
-		App::singleton(Widgets\CKeditor::class, function()
-		{
-			return new Widgets\CKeditor();
-		});
 
 		App::singleton(Widgets\Datepicker::class, function()
 		{
 			return new Widgets\Datepicker();
 		});
 
-		App::singleton(Widgets\DateTimepicker::class, function()
-		{
-			return new Widgets\DateTimepicker();
-		});
+        App::singleton(Widgets\CKeditor::class);
+        App::singleton(Widgets\DateTimepicker::class);
 
-		Artificer::widgetManager()->add('mascame/artificer-widgets', function() {
-			return app(Widgets\DateTimepicker::class);
-		});
+		Artificer::widgetManager()->add('mascame/artificer-widgets', [
+            Widgets\DateTimepicker::class,
+            Widgets\CKeditor::class
+        ]);
 	}
 
 	/**

@@ -1,6 +1,11 @@
 <?php namespace Mascame\Artificer\Widgets;
 
-class CKeditor extends AbstractWidget {
+namespace Mascame\Artificer\Widgets;
+
+use Mascame\Artificer\Fields\FieldWrapper;
+use Mascame\Artificer\Widget\FieldWidget;
+
+class CKeditor extends FieldWidget {
 
 	public function output()
 	{
