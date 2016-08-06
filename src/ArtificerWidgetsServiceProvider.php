@@ -15,7 +15,7 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	 */
 	protected $defer = false;
 
-	protected $name = 'artificer-widgets';
+	protected $name = 'mascame/artificer-widgets';
 
 	/**
 	 * Bootstrap the application events.
@@ -25,7 +25,7 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
 	public function boot()
 	{
 		$this->publishes([
-			__DIR__.'/../resources/' => public_path('packages/mascame/' . $this->name),
+			__DIR__.'/../resources/' => public_path('packages/' . $this->name),
 		], 'public');
 	}
 
@@ -50,7 +50,7 @@ class ArtificerWidgetsServiceProvider extends ServiceProvider {
         App::singleton(Widgets\CKeditor::class);
         App::singleton(Widgets\DateTimepicker::class);
 
-		Artificer::widgetManager()->add('mascame/artificer-widgets', [
+		Artificer::widgetManager()->add($this->name, [
             Widgets\DateTimepicker::class,
             Widgets\CKeditor::class
         ]);
