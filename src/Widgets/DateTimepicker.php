@@ -32,15 +32,8 @@ class DateTimepicker extends FieldWidget {
      * @return FieldWrapper
      */
 	public function field(FieldWrapper $field) {
-		$attributes = $field->field->getAttributes();
-		$classes = isset($attributes['class']) ? explode(' ', $attributes['class']) : [];
-
-		$field->field->setOptions([
-            'attributes' => [
-                'class' => join(' ', array_merge($classes, ['datetimepicker'])),
-                'data-date-format' => 'YYYY-MM-DD HH:mm:ss'
-            ]
-        ]);
+        $field->addAttribute('class', 'datetimepicker');
+        $field->addAttribute('data-date-format', 'YYYY-MM-DD HH:mm:ss');
 
 		return $field;
 	}
