@@ -1,69 +1,28 @@
 <?php namespace Mascame\Artificer;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\App;
 use Mascame\Artificer\Widgets;
 
-class ArtificerWidgetsServiceProvider extends ServiceProvider {
+class ArtificerWidgetsServiceProvider extends ArtificerExtensionServiceProvider {
 
 	use AutoPublishable;
 
-	/**
-	 * Indicates if loading of the provider is deferred.
-	 *
-	 * @var bool
-	 */
-	protected $defer = false;
+	protected $package = 'mascame/artificer-widgets';
 
-	protected $name = 'mascame/artificer-widgets';
-
-	/**
-	 * Bootstrap the application events.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->publishes([
-			__DIR__.'/../resources/' => public_path('packages/' . $this->name),
-		], 'public');
-	}
-
-	/**
-	 * Register the service provider.
-	 *
-	 * @return void
-	 */
 	public function register()
 	{
-		App::singleton(Widgets\Chosen::class, function()
-		{
-			return new Widgets\Chosen();
-		});
+//		App::singleton(Widgets\Chosen::class);
+//		App::singleton(Widgets\Datepicker::class);
 
+        \App::singleton(Widgets\CKeditor::class);
+        \App::singleton(Widgets\DateTimepicker::class);
 
-		App::singleton(Widgets\Datepicker::class, function()
-		{
-			return new Widgets\Datepicker();
-		});
-
-        App::singleton(Widgets\CKeditor::class);
-        App::singleton(Widgets\DateTimepicker::class);
-
-		Artificer::widgetManager()->add($this->name, [
+		$this->addWidget([
             Widgets\DateTimepicker::class,
-            Widgets\CKeditor::class
+            Widgets\CKeditor::class,
+//            Widgets\Datepicker::class,
+//            Widgets\FocalPoint::class,
+//            Widgets\Chosen::class,
         ]);
-	}
-
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
 	}
 
 }

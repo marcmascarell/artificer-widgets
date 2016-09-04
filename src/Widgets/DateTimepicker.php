@@ -1,8 +1,9 @@
 <?php namespace Mascame\Artificer\Widgets;
 
+use Mascame\Artificer\Assets\AssetsManagerInterface;
+use Mascame\Artificer\Extension\ResourceCollector;
 use Mascame\Artificer\Fields\FieldWrapper;
 use Mascame\Artificer\Widget\FieldWidget;
-use Stolz\Assets\Manager;
 
 class DateTimepicker extends FieldWidget {
 
@@ -15,17 +16,29 @@ class DateTimepicker extends FieldWidget {
     public $thumbnail = ''; // url
 
     /**
-     * @param Manager $manager
+     * @param AssetsManagerInterface $manager
      */
-	public function assets(Manager $manager) {
+	public function assets(AssetsManagerInterface $manager) {
 		$manager->add([
 			'jquery-cdn',
-			$this->assetsPath . 'libs/js/moment-with-locales.min.js',
-			$this->assetsPath . $this->slug . '/css/bootstrap-datetimepicker.min.css',
-			$this->assetsPath . $this->slug . '/js/bootstrap-datetimepicker.min.js',
-			$this->assetsPath . $this->slug . '/js/datetime-widget.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js',
+            $this->getAssetsPath('css/bootstrap-datetimepicker.min.css'),
+            $this->getAssetsPath('js/bootstrap-datetimepicker.min.js'),
+            $this->getAssetsPath('js/datetime-widget.js'),
 		]);
 	}
+
+    /**
+     * Extension config is not available until boot
+     *
+     * @param ResourceCollector $collector
+     * @return ResourceCollector
+     */
+    public function resources(ResourceCollector $collector) {
+        $collector->publishes([__DIR__.'/../../resources/datetimepicker' => $this->getAssetsPath()]);
+
+        return $collector;
+    }
 
     /**
      * @param FieldWrapper $field
