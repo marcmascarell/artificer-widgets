@@ -4,8 +4,6 @@ use Mascame\Artificer\Widgets;
 
 class ArtificerWidgetsServiceProvider extends ArtificerExtensionServiceProvider {
 
-	use AutoPublishable;
-
 	protected $package = 'mascame/artificer-widgets';
 
 	public function register()
