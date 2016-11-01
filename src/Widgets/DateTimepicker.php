@@ -2,7 +2,7 @@
 
 use Mascame\Artificer\Assets\AssetsManagerInterface;
 use Mascame\Artificer\Extension\ResourceCollector;
-use Mascame\Artificer\Fields\FieldWrapper;
+use Mascame\Artificer\Fields\Field;
 use Mascame\Artificer\Widget\FieldWidget;
 
 class DateTimepicker extends FieldWidget {
@@ -41,10 +41,10 @@ class DateTimepicker extends FieldWidget {
     }
 
     /**
-     * @param FieldWrapper $field
-     * @return FieldWrapper
+     * @param Field $field
+     * @return Field
      */
-	public function field(FieldWrapper $field) {
+	public function field(Field $field) {
         $field->addAttribute('class', 'datetimepicker');
         $field->addAttribute('data-date-format', 'YYYY-MM-DD HH:mm:ss');
 

@@ -4,6 +4,7 @@ namespace Mascame\Artificer\Widgets;
 
 use Mascame\Artificer\Assets\AssetsManagerInterface;
 use Mascame\Artificer\Extension\ResourceCollector;
+use Mascame\Artificer\Fields\Field;
 use Mascame\Artificer\Fields\FieldWrapper;
 use Mascame\Artificer\Widget\FieldWidget;
 
@@ -27,10 +28,10 @@ class CKeditor extends FieldWidget {
 	}
 
 	/**
-	 * @param FieldWrapper $field
-	 * @return FieldWrapper
+	 * @param Field $field
+	 * @return Field
 	 */
-	public function field(FieldWrapper $field) {
+	public function field(Field $field) {
 		$field->addAttribute('class', 'ckeditor');
 
 		return $field;
