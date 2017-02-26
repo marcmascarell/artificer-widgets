@@ -1,19 +1,19 @@
-<?php namespace Mascame\Artificer;
+<?php
 
-use Mascame\Artificer\Widgets;
+namespace Mascame\Artificer;
 
-class ArtificerWidgetsServiceProvider extends ArtificerExtensionServiceProvider {
+class ArtificerWidgetsServiceProvider extends ArtificerExtensionServiceProvider
+{
+    protected $package = 'mascame/artificer-widgets';
 
-	protected $package = 'mascame/artificer-widgets';
-
-	public function register()
-	{
+    public function register()
+    {
         \App::singleton(Widgets\DateTimepicker::class);
         \App::singleton(Widgets\CKeditor::class);
         \App::singleton(Widgets\Select2::class);
         \App::singleton(Widgets\Icheck::class);
 
-		$this->addWidget([
+        $this->addWidget([
             Widgets\DateTimepicker::class,
             Widgets\CKeditor::class,
             Widgets\Select2::class,
@@ -21,6 +21,5 @@ class ArtificerWidgetsServiceProvider extends ArtificerExtensionServiceProvider 
 //            Widgets\Datepicker::class,
 //            Widgets\FocalPoint::class,
         ]);
-	}
-
+    }
 }
