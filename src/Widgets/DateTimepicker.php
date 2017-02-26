@@ -45,7 +45,7 @@ class DateTimepicker extends FieldWidget {
      * @return Field
      */
 	public function field(Field $field) {
-        $field->addAttribute('class', 'datetimepicker');
+        $field->addAttribute('data-widget-datetimepicker', "true");
         $field->addAttribute('data-date-format', 'YYYY-MM-DD HH:mm:ss');
 
 		return $field;
